@@ -2,20 +2,20 @@ import { Band, SectionHead } from "../ui";
 
 const GUARANTEES = [
   {
-    title: "A IA só lê sua mensagem.",
-    text: "Ela entende o que você quer e devolve um pedido organizado. Nunca vê suas chaves nem monta a transação.",
+    title: "AI only reads your message.",
+    text: "It understands what you want and returns an organized request. It never sees your keys or builds the transaction.",
   },
   {
-    title: "Você lê antes de assinar.",
-    text: "O resumo vem da própria transação e é conferido com o que você escolheu. Se não bater, o Nilo avisa para não assinar.",
+    title: "You review before signing.",
+    text: "The summary comes from the transaction itself and is checked against your choice. If they do not match, Nilo tells you not to sign.",
   },
   {
-    title: "As chaves ficam com você.",
-    text: "Você assina na sua carteira: Freighter, Albedo ou uma carteira Pollar por e-mail ou Google. O Nilo só conhece seu endereço público.",
+    title: "You keep your keys.",
+    text: "You sign in your wallet: Freighter, Albedo, or a Pollar wallet using email or Google. Nilo only knows your public address.",
   },
   {
-    title: "Preços de verdade, não da IA.",
-    text: "Os valores vêm do Reflector, o oráculo de preços da Stellar. A IA nunca inventa um número.",
+    title: "Real prices, not AI estimates.",
+    text: "Prices come from Reflector, Stellar’s price oracle. AI never makes up a number.",
   },
 ];
 
@@ -23,10 +23,10 @@ export function Trust() {
   return (
     <Band id="trust">
       <SectionHead
-        label="Por que confiar"
+        label="Why trust Nilo"
         tone="ok"
-        title="Você no controle, do começo ao fim."
-        lead="O bot sugere e executa. Quem decide e assina é sempre você."
+        title="You stay in control, from start to finish."
+        lead="The bot suggests and executes. You always decide and sign."
       />
       <div className="mt-14 grid border-t border-line sm:mt-16 md:grid-cols-2">
         {GUARANTEES.map((g, index) => (

@@ -55,15 +55,25 @@ export function SectionHead({
 }
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2";
 
 /** The page's one primary action style (accent). */
-export function PrimaryButton({ href, children, external }: { href: string; children: ReactNode; external?: boolean }) {
+export function PrimaryButton({
+  href,
+  children,
+  external,
+  emphasized = false,
+}: {
+  href: string;
+  children: ReactNode;
+  external?: boolean;
+  emphasized?: boolean;
+}) {
   return (
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`${buttonBase} bg-accent text-white hover:bg-accent-2`}
+      className={`${buttonBase} bg-accent text-white hover:bg-accent-2 ${emphasized ? "h-12 px-6 text-base shadow-[0_0_24px_-6px_var(--accent)] ring-1 ring-accent-2/40 transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_32px_-4px_var(--accent)]" : "px-4 py-2.5 text-sm"}`}
     >
       {children}
     </a>
@@ -76,7 +86,7 @@ export function SecondaryLink({ href, children, external }: { href: string; chil
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`${buttonBase} text-text hover:bg-surface-3`}
+      className={`${buttonBase} px-4 py-2.5 text-sm text-text hover:bg-surface-3`}
     >
       {children}
       <ChevronIcon width={14} height={14} className="text-muted" />

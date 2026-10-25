@@ -6,7 +6,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-line bg-bg/80 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="#top" aria-label="Início do Nilo" className="flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text">
+        <a href="#top" aria-label="Nilo home" className="flex min-h-10 items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text">
           <Logo id="logo-top" size={28} />
           <span className="text-lg font-medium tracking-[-0.01em]">Nilo</span>
         </a>
@@ -19,7 +19,7 @@ export function Header() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-muted transition-colors duration-150 ease-out hover:bg-surface-3 hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+            className="inline-flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm text-muted transition-colors duration-150 ease-out hover:bg-surface-3 hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
           >
             <GithubIcon width={16} height={16} />
             GitHub

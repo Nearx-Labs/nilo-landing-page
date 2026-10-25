@@ -7,33 +7,33 @@ import { Stroopy } from "./Stroopy";
 
 const STEPS: { title: string; short: string; desc: string }[] = [
   {
-    title: "Responda o questionário",
-    short: "Questionário",
-    desc: "O Nilo começa perguntando, não vendendo. Algumas perguntas rápidas mostram o quanto você já sabe de cripto e quanto risco aceita.",
+    title: "Answer a few questions",
+    short: "Questions",
+    desc: "Nilo starts by asking, not selling. A few quick questions show what you know about crypto and how much risk you accept.",
   },
   {
-    title: "Receba sugestões",
-    short: "Sugestões",
-    desc: "Com o seu perfil, o bot sugere investimentos que combinam com você, cada um explicado em uma frase.",
+    title: "Get suggestions",
+    short: "Suggestions",
+    desc: "Based on your profile, the bot suggests investments that fit you, each explained in one sentence.",
   },
   {
-    title: "Escolha e confira",
-    short: "Escolha",
-    desc: "Você escolhe a sugestão que faz mais sentido. Antes de assinar, o Nilo mostra em palavras simples o que vai acontecer.",
+    title: "Choose and review",
+    short: "Choose",
+    desc: "Choose the suggestion that makes the most sense to you. Before you sign, Nilo explains in plain language what will happen.",
   },
   {
-    title: "O Nilo investe por você",
-    short: "Investimento",
-    desc: "Depois da sua assinatura, o bot executa o investimento na sua carteira e avisa no chat quando terminar.",
+    title: "Nilo invests for you",
+    short: "Investment",
+    desc: "After you sign, the bot makes the investment in your wallet and lets you know in the chat when it is done.",
   },
 ];
 
 const delay = (i: number) => ({ "--i": i }) as CSSProperties;
 
 const ANSWERS = [
-  { q: "Você já investiu em cripto?", a: "Nunca" },
-  { q: "Se o investimento cair 20% num mês, você…", a: "Espero passar" },
-  { q: "Por quanto tempo quer deixar investido?", a: "Mais de um ano" },
+  { q: "Have you invested in crypto before?", a: "Never" },
+  { q: "If your investment drops 20% in a month, you…", a: "Wait it out" },
+  { q: "How long do you plan to stay invested?", a: "More than a year" },
 ];
 
 /** Step 1: the questionnaire and the profile it leads to. */
@@ -52,7 +52,7 @@ function Questionnaire() {
       <div className="reveal flex items-center gap-3" style={delay(3)}>
         <Stroopy size={36} />
         <p className="text-sm">
-          Seu perfil: <span className="font-medium">{profile.label}</span>.{" "}
+          Your profile: <span className="font-medium">{profile.label}</span>.{" "}
           <span className="text-muted">{profile.text}</span>
         </p>
       </div>
@@ -73,7 +73,7 @@ function Suggestions() {
           </li>
         ))}
       </ul>
-      <p className="text-xs text-faint">Exemplo ilustrativo. Sugestões educativas, não recomendação financeira.</p>
+      <p className="text-xs text-faint">Illustrative example. Educational suggestions, not financial advice.</p>
     </div>
   );
 }
@@ -85,18 +85,18 @@ function ChooseAndCheck() {
   return (
     <div className="flex flex-col items-start gap-5">
       <p className="reveal text-sm text-muted">
-        Você escolheu <span className="font-medium text-text">{choice.name}</span> ({choice.mix}).
+        You chose <span className="font-medium text-text">{choice.name}</span> ({choice.mix}).
       </p>
-      <section className="reveal w-full rounded-xl border border-ok-line bg-ok-bg p-4 sm:p-5" style={delay(1)} aria-label="O que você vai assinar">
+      <section className="reveal w-full rounded-xl border border-ok-line bg-ok-bg p-4 sm:p-5" style={delay(1)} aria-label="What you are about to sign">
         <p className="flex items-center gap-2 text-xs font-medium text-ok">
           <ShieldIcon width={16} height={16} />
-          Conferido com a transação real
+          Verified against the actual transaction
         </p>
         <ul className="mt-3 flex flex-col gap-2 text-base">
           {[
-            "Você investe 100 USDC.",
-            "70 USDC continuam em dólar digital; 30 USDC viram XLM.",
-            "O preço vem do oráculo Reflector, não da IA.",
+            "You invest 100 USDC.",
+            "70 USDC stay in a digital dollar; 30 USDC become XLM.",
+            "The price comes from the Reflector oracle, not AI.",
           ].map((line) => (
             <li key={line} className="flex gap-2">
               <CheckIcon width={18} height={18} className="mt-0.5 flex-none text-ok" />
@@ -107,7 +107,7 @@ function ChooseAndCheck() {
       </section>
       {signed ? (
         <p className="reveal text-sm text-muted" role="status">
-          <span className="font-medium text-text">Assinado.</span> Agora é com o Nilo.
+          <span className="font-medium text-text">Signed.</span> Nilo takes it from here.
         </p>
       ) : (
         <button
@@ -131,12 +131,12 @@ function Invested() {
       <div className="reveal flex items-end gap-3">
         <Stroopy size={32} />
         <div className="max-w-[85%] rounded-2xl rounded-bl-md border border-line bg-surface-2 px-4 py-3 text-[15px]">
-          Pronto! Seus 100 USDC estão investidos no <span className="font-medium">Equilíbrio</span>. Quer ver como
-          ficou sua carteira?
+          Done! Your 100 USDC are invested in <span className="font-medium">Balanced</span>. Want to see how your
+          portfolio looks?
         </div>
       </div>
       <p className="reveal text-sm text-muted" style={delay(1)}>
-        Tudo acontece na sua carteira. O Nilo nunca guarda seus fundos nem suas chaves.
+        Everything happens in your wallet. Nilo never holds your funds or keys.
       </p>
     </div>
   );
@@ -156,7 +156,7 @@ function Panel({ step }: { step: number }) {
 }
 
 const ghostButton =
-  "rounded-lg border border-line-strong px-4 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-surface-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2 disabled:opacity-40 disabled:hover:bg-transparent";
+  "rounded-lg border border-line-strong px-4 py-2.5 text-sm font-medium text-text transition-colors duration-150 hover:bg-surface-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2 disabled:opacity-40 disabled:hover:bg-transparent";
 
 /** True from the lg breakpoint up, where the steps sit beside the panel and stack vertically. */
 function useIsDesktop() {
@@ -207,7 +207,7 @@ export function InvestmentWalkthrough() {
     <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-14">
       <div
         role="tablist"
-        aria-label="Etapas do investimento"
+        aria-label="Investment steps"
         aria-orientation={desktop ? "vertical" : "horizontal"}
         onKeyDown={onKeyDown}
         className="grid grid-cols-4 lg:flex lg:flex-col lg:self-start lg:pt-6"
@@ -225,10 +225,10 @@ export function InvestmentWalkthrough() {
               id={`step-tab-${i}`}
               aria-selected={active}
               aria-controls="step-panel"
-              aria-label={`Etapa ${i + 1}: ${s.title}`}
+              aria-label={`Step ${i + 1}: ${s.title}`}
               tabIndex={active ? 0 : -1}
               onClick={() => go(i)}
-              className={`group relative flex h-12 min-w-0 items-center justify-center gap-2 px-1 text-left transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent-2 lg:h-auto lg:justify-start lg:gap-3 lg:py-2 lg:pl-5 ${
+              className={`group relative flex h-12 min-w-0 items-center justify-center gap-2 px-1 text-left transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent-2 lg:h-auto lg:min-h-10 lg:justify-start lg:gap-3 lg:py-2 lg:pl-5 ${
                 active ? "text-text" : "text-muted hover:text-text"
               }`}
             >
@@ -268,7 +268,7 @@ export function InvestmentWalkthrough() {
             <p className="flex min-w-0 items-center gap-1.5 text-xs text-faint">
               <span>Nilo</span>
               <ChevronIcon width={12} height={12} />
-              <span className="truncate">Investimento</span>
+              <span className="truncate">Investment</span>
               <ChevronIcon width={12} height={12} />
               <span className="whitespace-nowrap font-mono text-muted">
                 {step + 1}/{STEPS.length}
@@ -287,20 +287,20 @@ export function InvestmentWalkthrough() {
 
             <div className="mt-8 flex items-center justify-between gap-3 border-t border-line pt-4">
               <button type="button" onClick={() => go(step - 1)} disabled={step === 0} className={ghostButton}>
-                Voltar
+                Back
               </button>
               {step < last ? (
                 <button
                   type="button"
                   onClick={() => go(step + 1)}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors duration-150 hover:bg-accent-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-white transition-colors duration-150 hover:bg-accent-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2"
                 >
-                  Próximo
+                  Next
                   <ChevronIcon width={16} height={16} />
                 </button>
               ) : (
                 <button type="button" onClick={() => go(0)} className={ghostButton}>
-                  Recomeçar
+                  Start over
                 </button>
               )}
             </div>

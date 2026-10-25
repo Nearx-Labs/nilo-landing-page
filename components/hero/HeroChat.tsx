@@ -35,13 +35,13 @@ export function HeroChat() {
       <div className="flex items-center gap-2.5 border-b border-line bg-surface-2 px-4 py-2.5 sm:gap-3 sm:px-5 sm:py-3">
         <Stroopy size={24} />
         <p className="text-sm font-medium">Nilo</p>
-        <p className="hidden text-xs text-muted sm:block">seu bot de investimentos</p>
+        <p className="hidden text-xs text-muted sm:block">your investment bot</p>
       </div>
       <div className="flex flex-col gap-3 p-3.5 sm:gap-4 sm:p-6">
-        <Bot i={0}>Oi! Antes de sugerir qualquer coisa, quero te conhecer. Você já investiu em cripto?</Bot>
-        <User i={1}>Nunca. Quero começar com 100 USDC.</User>
+        <Bot i={0}>Hi! Before I suggest anything, I’d like to get to know you. Have you invested in crypto before?</Bot>
+        <User i={1}>Never. I’d like to start with 100 USDC.</User>
         <Bot i={2}>
-          Perfeito. Pelo seu perfil, <span className="font-medium">Moderado</span>, separei três sugestões:
+          Great. Based on your <span className="font-medium">Moderate</span> profile, I found three suggestions:
           <span className="mt-2 flex flex-wrap gap-1.5 sm:mt-3 sm:grid sm:grid-cols-3 sm:gap-2">
             {SUGGESTIONS.map((s, i) => (
               <span

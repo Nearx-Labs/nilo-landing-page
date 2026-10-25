@@ -8,14 +8,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nilo · Investir em cripto, conversando",
+  title: "Nilo · Crypto investing, through conversation",
   description:
-    "O Nilo é um bot de investimentos na Stellar: entende o seu perfil, sugere investimentos que combinam com você e investe por você. Você só escolhe e assina.",
+    "Nilo is an investment bot on Stellar: it learns your profile, suggests investments that fit you, and invests on your behalf. You choose and sign.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} antialiased`}>
       <body className="min-h-screen font-sans text-[15px] leading-normal">{children}</body>
     </html>
   );
