@@ -1,5 +1,6 @@
+import { APP_URL } from "@/lib/demo";
 import { InvestmentWalkthrough } from "../InvestmentWalkthrough";
-import { Band, SectionHead } from "../ui";
+import { Band, PrimaryButton, SectionHead } from "../ui";
 
 export function HowItWorks() {
   return (
@@ -17,6 +18,11 @@ export function HowItWorks() {
       />
       <div className="mt-12 sm:mt-16">
         <InvestmentWalkthrough />
+      </div>
+      <div className="mt-10">
+        <PrimaryButton href={APP_URL} external>
+          Acessar Nilo
+        </PrimaryButton>
       </div>
       <p className="mt-12 max-w-[70ch] border-t border-line pt-6 text-sm text-muted">
         Se o que você vai assinar não bater com o que você escolheu, o Nilo avisa:{" "}

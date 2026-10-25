@@ -1,6 +1,7 @@
 // Fixed demo content shared by the hero and the walkthrough.
 
 export const GITHUB_URL = "https://github.com/Nearx-Labs/nilo";
+export const APP_URL = "https://app.nilo-ai.xyz/";
 
 /** Investor profiles, as the app names and describes them (nilo/apps/web/src/profile.ts). */
 export const PROFILES = [
