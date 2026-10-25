@@ -7,7 +7,7 @@ export function Header() {
     <header className="sticky top-0 z-20 border-b border-line bg-bg/80 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-4">
         <a href="#top" aria-label="Nilo home" className="flex min-h-10 items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text">
-          <Logo id="logo-top" size={28} />
+          <Logo id="logo-top" size={32} />
           <span className="text-lg font-medium tracking-[-0.01em]">Nilo</span>
         </a>
         <div className="flex items-center gap-3">

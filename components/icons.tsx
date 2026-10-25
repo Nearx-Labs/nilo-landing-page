@@ -1,5 +1,6 @@
 // Inline line icons, same set as the app (nilo/apps/web/src/components/icons.tsx).
 import type { ReactNode, SVGProps } from "react";
+import Image from "next/image";
 
 function Icon({ children, ...props }: SVGProps<SVGSVGElement> & { children: ReactNode }) {
   return (
@@ -22,27 +23,9 @@ function Icon({ children, ...props }: SVGProps<SVGSVGElement> & { children: Reac
 
 type P = SVGProps<SVGSVGElement>;
 
-/** Nilo's mark: a rounded "N" on a dark violet disc. `id` keeps gradient ids unique per use. */
-export function Logo({ id, size = 36 }: { id: string; size?: number }) {
-  return (
-    <svg viewBox="0 0 40 40" width={size} height={size} aria-hidden="true" className="flex-none">
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#c7c2ff" />
-          <stop offset="1" stopColor="#7b6cff" />
-        </linearGradient>
-      </defs>
-      <circle cx="20" cy="20" r="20" fill="#1c1f45" />
-      <path
-        d="M12.5 26V15.5a3.2 3.2 0 0 1 5.9-1.7l3.2 5.2 3.2 5.2a3.2 3.2 0 0 0 5.9-1.7V14"
-        fill="none"
-        stroke={`url(#${id})`}
-        strokeWidth="4.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
+/** Nilo's purple mascot mark. `id` remains in the props for existing callers. */
+export function Logo({ size = 36 }: { id: string; size?: number }) {
+  return <Image src="/brand/nilo-icon.png" alt="" aria-hidden="true" width={size} height={size} className="flex-none" />;
 }
 
 export const SendIcon = (p: P) => (
