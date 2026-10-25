@@ -20,8 +20,8 @@ export function Hero() {
           </SecondaryLink>
         </div>
         {/* clip only the bottom edge so the tilted window can't run into the strip below */}
-        <div className="relative mt-14 [clip-path:inset(-200px_-600px_0_-600px)] sm:mt-20">
-          <TiltFrame className="mx-auto max-w-[880px]" tilt={{ x: 22, z: -6, skew: 6 }}>
+        <div className="relative mt-10 [clip-path:inset(-200px_-600px_0_-600px)] sm:mt-6 lg:mt-2">
+          <TiltFrame className="mx-auto max-w-[880px]">
             <HeroChat />
           </TiltFrame>
         </div>

@@ -5,21 +5,25 @@ import { PROFILES, SUGGESTIONS } from "@/lib/demo";
 import { CheckIcon, ChevronIcon, SendIcon, ShieldIcon } from "./icons";
 import { Stroopy } from "./Stroopy";
 
-const STEPS: { title: string; desc: string }[] = [
+const STEPS: { title: string; short: string; desc: string }[] = [
   {
     title: "Responda o questionário",
+    short: "Questionário",
     desc: "O Nilo começa perguntando, não vendendo. Algumas perguntas rápidas mostram o quanto você já sabe de cripto e quanto risco aceita.",
   },
   {
     title: "Receba sugestões",
+    short: "Sugestões",
     desc: "Com o seu perfil, o bot sugere investimentos que combinam com você, cada um explicado em uma frase.",
   },
   {
     title: "Escolha e confira",
+    short: "Escolha",
     desc: "Você escolhe a sugestão que faz mais sentido. Antes de assinar, o Nilo mostra em palavras simples o que vai acontecer.",
   },
   {
     title: "O Nilo investe por você",
+    short: "Investimento",
     desc: "Depois da sua assinatura, o bot executa o investimento na sua carteira e avisa no chat quando terminar.",
   },
 ];
@@ -154,11 +158,11 @@ function Panel({ step }: { step: number }) {
 const ghostButton =
   "rounded-lg border border-line-strong px-4 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-surface-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2 disabled:opacity-40 disabled:hover:bg-transparent";
 
-/** True from the md breakpoint up, where the steps are stacked vertically. */
+/** True from the lg breakpoint up, where the steps sit beside the panel and stack vertically. */
 function useIsDesktop() {
   const [desktop, setDesktop] = useState(false);
   useEffect(() => {
-    const query = window.matchMedia("(min-width: 768px)");
+    const query = window.matchMedia("(min-width: 1024px)");
     const sync = () => setDesktop(query.matches);
     sync();
     query.addEventListener("change", sync);
@@ -200,13 +204,13 @@ export function InvestmentWalkthrough() {
 
   const current = STEPS[step];
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)] gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:gap-14">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-14">
       <div
         role="tablist"
         aria-label="Etapas do investimento"
         aria-orientation={desktop ? "vertical" : "horizontal"}
         onKeyDown={onKeyDown}
-        className="grid grid-cols-4 md:flex md:flex-col md:self-start md:pt-6"
+        className="grid grid-cols-4 lg:flex lg:flex-col lg:self-start lg:pt-6"
       >
         {STEPS.map((s, i) => {
           const active = i === step;
@@ -224,25 +228,26 @@ export function InvestmentWalkthrough() {
               aria-label={`Etapa ${i + 1}: ${s.title}`}
               tabIndex={active ? 0 : -1}
               onClick={() => go(i)}
-              className={`group relative flex h-12 min-w-0 items-center justify-center text-left transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent-2 md:h-auto md:justify-start md:gap-3 md:py-2 md:pl-5 ${
+              className={`group relative flex h-12 min-w-0 items-center justify-center gap-2 px-1 text-left transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent-2 lg:h-auto lg:justify-start lg:gap-3 lg:py-2 lg:pl-5 ${
                 active ? "text-text" : "text-muted hover:text-text"
               }`}
             >
               <span
                 aria-hidden="true"
-                className={`absolute inset-x-1 bottom-0 h-0.5 rounded-full transition-colors duration-150 md:inset-x-auto md:inset-y-0.5 md:left-0 md:h-auto md:w-0.5 ${bar} ${
+                className={`absolute inset-x-1 bottom-0 h-0.5 rounded-full transition-colors duration-150 lg:inset-x-auto lg:inset-y-0.5 lg:left-0 lg:h-auto lg:w-0.5 ${bar} ${
                   active ? "" : "group-hover:bg-faint"
                 }`}
               />
-              <span className="font-mono text-[13px] text-faint md:w-4">{i + 1}</span>
-              <span className="hidden text-[15px] md:inline">{s.title}</span>
+              <span className="font-mono text-[13px] text-faint lg:w-4">{i + 1}</span>
+              <span className="hidden truncate text-sm sm:inline lg:hidden">{s.short}</span>
+              <span className="hidden text-[15px] lg:inline">{s.title}</span>
             </button>
           );
         })}
       </div>
 
       {/* Ghost layers behind the panel echo Linear's stacked product cards. */}
-      <div className="relative min-w-0 pt-4 md:pt-5">
+      <div className="relative min-w-0 pt-4 lg:pt-5">
         <div
           aria-hidden="true"
           className="absolute inset-x-8 top-0 h-24 rounded-2xl border border-line bg-surface/50 sm:inset-x-14"
@@ -250,7 +255,7 @@ export function InvestmentWalkthrough() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-4 top-2 h-24 rounded-2xl border border-line bg-surface/70 sm:inset-x-7 md:top-2.5"
+          className="absolute inset-x-4 top-2 h-24 rounded-2xl border border-line bg-surface/70 sm:inset-x-7 lg:top-2.5"
           style={{ maskImage: "linear-gradient(180deg, #000, transparent)", WebkitMaskImage: "linear-gradient(180deg, #000, transparent)" }}
         />
         <div
