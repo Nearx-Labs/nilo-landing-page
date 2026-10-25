@@ -4,9 +4,9 @@ Landing page for [Nilo](https://github.com/Nearx-Labs/nilo), an investment bot o
 page with an interactive walkthrough of how an investment flows.
 
 ```bash
-npm install
-npm run dev     # http://localhost:3000
-npm run build
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm build
 ```
 
 - The page is in Brazilian Portuguese for now; an English version comes later.

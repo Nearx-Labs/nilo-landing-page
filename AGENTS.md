@@ -17,13 +17,13 @@ Static marketing page for [Nilo](https://github.com/Nearx-Labs/nilo), an investm
 ## Commands
 
 ```bash
-npm install
-npm run dev     # http://localhost:3000
-npm run lint    # eslint (next core-web-vitals + typescript)
-npm run build   # also type-checks
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm lint       # eslint (next core-web-vitals + typescript)
+pnpm build      # also type-checks
 ```
 
-There are no tests. A change is done when `npm run lint` and `npm run build` pass and the page works at 375px and 1440px.
+There are no tests. A change is done when `pnpm lint` and `pnpm build` pass and the page works at 375px and 1440px.
 
 ## Stack
 
@@ -51,4 +51,4 @@ Read `DESIGN.md` before any visual or copy change. The short version:
 
 ## Working as a worker
 
-When dispatched by a coordinator (e.g. Orca orchestration), stay inside the files your task names, do not commit unless the task says so, and report the `npm run lint` / `npm run build` result in your completion message.
+When dispatched by a coordinator (e.g. Orca orchestration), stay inside the files your task names, do not commit unless the task says so, and report the `pnpm lint` / `pnpm build` result in your completion message.

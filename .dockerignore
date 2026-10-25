@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.git
+.github
+.env*
+*.log
+*.tsbuildinfo
+.DS_Store
+.claude
+README.md
+AGENTS.md
+CLAUDE.md
+DESIGN.md
+Dockerfile
+.dockerignore
