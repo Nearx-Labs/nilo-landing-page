@@ -1,4 +1,4 @@
-import { GITHUB_URL } from "@/lib/demo";
+import { APP_URL, GITHUB_URL } from "@/lib/demo";
 import { GithubIcon, Logo } from "../icons";
 import { Container } from "../ui";
 
@@ -22,7 +22,15 @@ export function Header() {
             className="inline-flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm text-muted transition-colors duration-150 ease-out hover:bg-surface-3 hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
           >
             <GithubIcon width={16} height={16} />
-            GitHub
+            <span className="sr-only sm:not-sr-only">GitHub</span>
+          </a>
+          <a
+            href={APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center rounded-lg border border-line-strong bg-surface-2 px-4 text-sm font-medium text-text transition-colors duration-150 ease-out hover:bg-surface-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+          >
+            Open Nilo
           </a>
         </div>
       </Container>

@@ -29,9 +29,9 @@ export function Hero() {
           <p className="text-[13px] text-faint">Built on Stellar. Connected to</p>
           <ul
             aria-label="Nilo integrations"
-            className="mx-auto mt-6 flex max-w-[800px] flex-wrap items-center justify-center gap-x-8 gap-y-5 text-lg font-medium tracking-[-0.02em] text-muted sm:justify-between sm:gap-x-10 sm:text-xl"
+            className="mx-auto mt-6 flex max-w-[480px] flex-wrap items-center justify-center gap-x-8 gap-y-5 text-lg font-medium tracking-[-0.02em] text-muted sm:justify-between sm:gap-x-10 sm:text-xl"
           >
-            {["Stellar", "Reflector", "Pollar", "Freighter", "Albedo"].map((name) => (
+            {["Stellar", "Reflector", "Pollar"].map((name) => (
               <li key={name}>{name}</li>
             ))}
           </ul>
